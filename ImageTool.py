@@ -33,7 +33,10 @@ class ImageSource:
     images=%s
     @classmethod
     def get_bitmap( cls, key ):
-        return wx.Bitmap().FromPNGData( base64.b64decode(cls.images.get(key)))
+        if cls.images.get(key) is not None:
+            return wx.Bitmap().FromPNGData( base64.b64decode(cls.images.get(key)))
+        else:
+            return wx.Bitmap().FromPNGData( base64.b64decode(cls.images.get("vdata")))
 if __name__ == '__main__':
     print(ImageSource.get_bitmap("car"))
         '''%(data))
