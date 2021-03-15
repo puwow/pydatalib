@@ -162,6 +162,7 @@ class ResultPanel( wx.Panel ):
         self.SetSizer( vbox )
 
         self.Bind( EVT_FAKER, self.OnFaker )
+        self.locale.SetStringSelection('zh_CN')
     def OnFaker( self, event ):
         _locale = self.locale.GetStringSelection()
         self._fake = faker.Faker(locale=_locale)
